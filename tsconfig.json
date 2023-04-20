@@ -7,11 +7,10 @@
 		"declaration": true,
 		"declarationMap": true,
 		"outDir": "./dist/",
-
 		"removeComments": true,
 		"declarationDir": "./types/",
 		"allowSyntheticDefaultImports": true,
 		"forceConsistentCasingInFileNames": true,
-		"strict": true,
+		"strict": true
 	}
 }

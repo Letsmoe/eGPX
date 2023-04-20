@@ -3,12 +3,15 @@
 	"version": "0.0.1",
 	"type": "module",
 	"types": "./types/index.d.ts",
-	"description": "IBCornelsen Projekt Template",
+	"description": "Efficient GPX implementation for applications where bytesize matters!",
 	"main": "./dist/index.js",
+	"scripts": {
+		"schema:generate": "typescript-json-schema src/egpx.schema.d.ts eGPXFile > schema/egpx.schema.json"
+	},
 	"keywords": [
 		"egpx",
 		"gpx"
 	],
-	"author": "IBCornelsen",
-	"license": "GPL-3.0"
+	"author": "Letsmoe",
+	"license": "MIT"
 }
