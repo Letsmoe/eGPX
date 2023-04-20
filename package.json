@@ -1,0 +1,14 @@
+{
+	"name": "egpx-parser",
+	"version": "0.0.1",
+	"type": "module",
+	"types": "./types/index.d.ts",
+	"description": "IBCornelsen Projekt Template",
+	"main": "./dist/index.js",
+	"keywords": [
+		"egpx",
+		"gpx"
+	],
+	"author": "IBCornelsen",
+	"license": "GPL-3.0"
+}
