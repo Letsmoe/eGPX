@@ -1,4 +1,4 @@
-export { GeospatialDataPoint } from "./GeospatialDataPoint.js";
-export { parseGeospatialDataFile } from "./Parser.js";
-export { eGPXFile } from "./eGPXFile.js";
+export { eGPXEncode } from "./eGPXEncode.js";
+export { eGPXDecode } from "./eGPXDecode.js";
+export { eGPX } from "./egpx.js";
 //# sourceMappingURL=index.d.ts.map

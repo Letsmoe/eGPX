@@ -1,1 +1,0 @@
-{"version":3,"file":"eGPXFile.d.ts","sourceRoot":"","sources":["../src/eGPXFile.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,mBAAmB,EAAE,MAAM,uBAAuB,CAAC;AAE5D,qBAAa,QAAQ;IACM,MAAM,EAAE,mBAAmB,EAAE;IAAS,OAAO,EAAE,MAAM;gBAArD,MAAM,EAAE,mBAAmB,EAAE,EAAS,OAAO,GAAE,MAAU;IAI5E,QAAQ;CAaf"}

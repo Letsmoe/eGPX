@@ -6,12 +6,22 @@
 	"description": "Efficient GPX implementation for applications where bytesize matters!",
 	"main": "./dist/index.js",
 	"scripts": {
-		"schema:generate": "typescript-json-schema src/egpx.schema.d.ts eGPXFile > schema/egpx.schema.json"
+		"schema:generate": "typescript-json-schema src/egpx.schema.d.ts eGPXFile > schema/egpx.schema.json",
+		"proto:generate": "protoc --plugin=protoc-gen-ts=node_modules/.bin/protoc-gen-ts --js_out=import_style=es6,binary:. --ts_out=service=grpc-web:. src/egpx.proto"
 	},
 	"keywords": [
 		"egpx",
 		"gpx"
 	],
 	"author": "Letsmoe",
-	"license": "MIT"
+	"license": "MIT",
+	"dependencies": {
+		"google-protobuf": "^3.21.2",
+		"protobufjs": "^7.2.3",
+		"protoc-gen-js": "^3.21.2",
+		"protoc-gen-ts": "^0.8.6"
+	},
+	"devDependencies": {
+		"@types/google-protobuf": "^3.15.6"
+	}
 }
