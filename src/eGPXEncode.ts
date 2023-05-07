@@ -1,13 +1,23 @@
-import protobuf from "protobufjs";
-import { eGPX } from "./egpx";
+import { eGPXEncodeV1_0_0 } from "./v1.0.0/encode";
 
-export function eGPXEncode(source: eGPX.File): Uint8Array {
-	const root = protobuf.loadSync("./src/egpx.proto");
-	const FileMessage = root.lookupType("eGPX.File");
+type VersionedArgumentTypes = {
+	"1.0.0": Parameters<typeof eGPXEncodeV1_0_0>[0];
+};
 
-	const message = FileMessage.create(source);
+const defaultVersion: keyof VersionedArgumentTypes = "1.0.0";
 
-	const buffer = FileMessage.encode(message).finish();
+export function eGPXEncode<T extends keyof VersionedArgumentTypes>(
+	source: VersionedArgumentTypes[T],
+	version?: keyof VersionedArgumentTypes
+): Uint8Array {
+	// If the version was set in the `data` we will just use that version to ensure compatibility.
+	// Otherwise we must rely on the version that was passed to the function.
+	version = version || defaultVersion;
 
-	return buffer;
+	switch (version) {
+		case "1.0.0":
+			return eGPXEncodeV1_0_0(source);
+		default:
+			throw new Error(`Unsupported version: ${version}`);
+	}
 }

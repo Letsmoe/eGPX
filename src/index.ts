@@ -1,4 +1,3 @@
-export { eGPXEncode } from "./eGPXEncode.js";
+export { eGPX } from "./v1.0.0/egpx.js";
 export { eGPXDecode } from "./eGPXDecode.js";
-
-export { eGPX } from "./egpx.js";
+export { eGPXEncode } from "./eGPXEncode.js";
