@@ -4,13 +4,10 @@
 	"type": "module",
 	"types": "./types/index.d.ts",
 	"description": "Efficient GPX implementation for applications where bytesize matters!",
-	"main": "./src/index.ts",
+	"main": "./dist/index.js",
 	"module": "./src/index.ts",
 	"exports": {
-		".": {
-			"import": "./src/index.ts",
-			"require": "./src/index.js"
-		}
+		".": "./src/index.ts"
 	},
 	"scripts": {
 		"schema:generate": "typescript-json-schema src/egpx.schema.d.ts eGPXFile > schema/egpx.schema.json",
@@ -28,12 +25,10 @@
 		"protobufjs": "^7.2.3",
 		"protoc-gen-js": "^3.21.2",
 		"protoc-gen-ts": "^0.8.6",
-		"xml2json": "^0.12.0",
 		"xmlbuilder2": "^3.1.1"
 	},
 	"devDependencies": {
-		"@types/deep-diff": "^1.0.2",
-		"@types/google-protobuf": "^3.15.6",
-		"deep-diff": "^1.0.2"
+		"xml2json": "^0.12.0",
+		"@types/google-protobuf": "^3.15.6"
 	}
 }
