@@ -5,6 +5,13 @@
 	"types": "./types/index.d.ts",
 	"description": "Efficient GPX implementation for applications where bytesize matters!",
 	"main": "./src/index.ts",
+	"module": "./src/index.ts",
+	"exports": {
+		".": {
+			"import": "./src/index.ts",
+			"require": "./src/index.js"
+		}
+	},
 	"scripts": {
 		"schema:generate": "typescript-json-schema src/egpx.schema.d.ts eGPXFile > schema/egpx.schema.json",
 		"proto:generate": "protoc --plugin=protoc-gen-ts=node_modules/.bin/protoc-gen-ts --js_out=import_style=es6,binary:. --ts_out=service=grpc-web:. schemas/v1.1/eGPX.proto"
