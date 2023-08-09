@@ -63,6 +63,10 @@ export function eGPXEncodeV1_1(source: eGPX.File): Uint8Array {
 			}
 		}
 	}
+
+	if (source.metadata && source.metadata.time) {
+		source.metadata.time = moment(source.metadata.time).unix();
+	}
 	
 
 	const FileMessage = root.lookupType("eGPX.File");
