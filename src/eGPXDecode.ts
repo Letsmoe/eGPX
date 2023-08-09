@@ -1,10 +1,10 @@
-import { eGPXDecodeV1_0_0 } from "./v1.0.0/decode";
+import { eGPXDecodeV1_1 } from "./v1.1/decode.js";
 
 type VersionedReturnTypes = {
-	"1.0.0": ReturnType<typeof eGPXDecodeV1_0_0>;
+	"1.1": ReturnType<typeof eGPXDecodeV1_1>;
 };
 
-const defaultVersion: keyof VersionedReturnTypes = "1.0.0";
+const defaultVersion: keyof VersionedReturnTypes = "1.1";
 
 export function eGPXDecode<T extends keyof VersionedReturnTypes>(
 	data: Uint8Array,
@@ -15,8 +15,8 @@ export function eGPXDecode<T extends keyof VersionedReturnTypes>(
 	version = version || defaultVersion;
 
 	switch (version) {
-		case "1.0.0":
-			return eGPXDecodeV1_0_0(data);
+		case "1.1":
+			return eGPXDecodeV1_1(data);
 		default:
 			throw new Error(`Unsupported version: ${version}`);
 	}

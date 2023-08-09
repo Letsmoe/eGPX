@@ -1,0 +1,49 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+import "schemas/v1.1/Link.proto";
+
+
+message Waypoint {
+	// The latitude of the point. Decimal degrees, WGS84 datum.
+	float lat = 1;
+	// The longitude of the point. Decimal degrees, WGS84 datum.
+	float lon = 2;
+	// Elevation (in meters) of the point.
+	float ele = 3;
+	// Creation/modification timestamp for element. Date and time in are in Univeral Coordinated Time (UTC), not local time! Conforms to ISO 8601 specification for date/time representation. Fractional seconds are allowed for millisecond timing in tracklogs.
+	int64 time = 4;
+	// Magnetic variation (in degrees) at the point
+	float magvar = 5;
+	// Height (in meters) of geoid (mean sea level) above WGS84 earth ellipsoid. As defined in NMEA GGA message.
+	float geoidheight = 6;
+	// The GPS name of the waypoint. This field will be transferred to and from the GPS. GPX does not place restrictions on the length of this field or the characters contained in it. It is up to the receiving application to validate the field before sending it to the GPS.
+	string name = 7;
+	// GPS waypoint comment. Sent to GPS as comment.
+	string cmt = 8;
+	// A text description of the element. Holds additional information about the element intended for the user, not the GPS.
+	string desc = 9;
+	// Source of data. Included to give user some idea of reliability and accuracy of data.
+	string src = 10;
+	// Link to additional information about the waypoint.
+	repeated Link link = 11;
+	// Text of GPS symbol name. For interchange with other programs, use the exact spelling of the symbol as displayed on the GPS. If the GPS abbreviates words, spell them out.
+	string sym = 12;
+	// Type (classification) of the waypoint.
+	string type = 13;
+	// Type of GPX fix.
+	string fix = 14;
+	// Number of satellites used to calculate the GPX fix.
+	int32 sat = 15;
+	// Horizontal dilution of precision.
+	float hdop = 16;
+	// Vertical dilution of precision.
+	float vdop = 17;
+	// Position dilution of precision.
+	float pdop = 18;
+	// Number of seconds since last DGPS update.
+	float ageofdgpsdata = 19;
+	// ID of DGPS station used in differential correction.
+	int32 dgpsid = 20;
+	// A link to additional information about the waypoint.
+	map<string, google.protobuf.Any> extensions = 21;
+}

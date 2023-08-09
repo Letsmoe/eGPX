@@ -1,10 +1,10 @@
-import { eGPXEncodeV1_0_0 } from "./v1.0.0/encode";
+import { eGPXEncodeV1_1 } from "./v1.1/encode.js";
 
 type VersionedArgumentTypes = {
-	"1.0.0": Parameters<typeof eGPXEncodeV1_0_0>[0];
+	"1.1": Parameters<typeof eGPXEncodeV1_1>[0];
 };
 
-const defaultVersion: keyof VersionedArgumentTypes = "1.0.0";
+const defaultVersion: keyof VersionedArgumentTypes = "1.1";
 
 export function eGPXEncode<T extends keyof VersionedArgumentTypes>(
 	source: VersionedArgumentTypes[T],
@@ -15,8 +15,8 @@ export function eGPXEncode<T extends keyof VersionedArgumentTypes>(
 	version = version || defaultVersion;
 
 	switch (version) {
-		case "1.0.0":
-			return eGPXEncodeV1_0_0(source);
+		case "1.1":
+			return eGPXEncodeV1_1(source);
 		default:
 			throw new Error(`Unsupported version: ${version}`);
 	}

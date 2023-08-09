@@ -1,1 +1,1 @@
-{"version":3,"file":"decode.d.ts","sourceRoot":"","sources":["../../src/v1.0.0/decode.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,IAAI,EAAE,MAAM,QAAQ,CAAC;AAE9B,wBAAgB,gBAAgB,CAAC,MAAM,EAAE,UAAU,GAAG,IAAI,CAAC,IAAI,CAO9D"}
+{"version":3,"file":"decode.d.ts","sourceRoot":"","sources":["../../src/v1.0.0/decode.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,IAAI,EAAE,MAAM,QAAQ,CAAC;AAM9B,wBAAgB,gBAAgB,CAAC,MAAM,EAAE,UAAU,GAAG,IAAI,CAAC,IAAI,CAO9D"}

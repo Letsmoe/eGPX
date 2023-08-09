@@ -1,0 +1,163 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+// import "schemas/v1.1/Link.proto";
+// import "schemas/v1.1/Waypoint.proto";
+package eGPX;
+
+message File {
+    string version = 1;
+		string creator = 2;
+    Metadata metadata = 3;
+    repeated Waypoint wpt = 4;
+    repeated Track trk = 5;
+    repeated Route rte = 6;
+		map<string, google.protobuf.Any> extensions = 7;
+}
+
+message Link {
+	string href = 1;
+	string text = 2;
+	string type = 3;
+}
+
+message Waypoint {
+	// The latitude of the point. Decimal degrees, WGS84 datum.
+	float lat = 1;
+	// The longitude of the point. Decimal degrees, WGS84 datum.
+	float lon = 2;
+	// Elevation (in meters) of the point.
+	float ele = 3;
+	// Creation/modification timestamp for element. Date and time in are in Univeral Coordinated Time (UTC), not local time! Conforms to ISO 8601 specification for date/time representation. Fractional seconds are allowed for millisecond timing in tracklogs.
+	int64 time = 4;
+	// Magnetic variation (in degrees) at the point
+	float magvar = 5;
+	// Height (in meters) of geoid (mean sea level) above WGS84 earth ellipsoid. As defined in NMEA GGA message.
+	float geoidheight = 6;
+	// The GPS name of the waypoint. This field will be transferred to and from the GPS. GPX does not place restrictions on the length of this field or the characters contained in it. It is up to the receiving application to validate the field before sending it to the GPS.
+	string name = 7;
+	// GPS waypoint comment. Sent to GPS as comment.
+	string cmt = 8;
+	// A text description of the element. Holds additional information about the element intended for the user, not the GPS.
+	string desc = 9;
+	// Source of data. Included to give user some idea of reliability and accuracy of data.
+	string src = 10;
+	// Link to additional information about the waypoint.
+	repeated Link link = 11;
+	// Text of GPS symbol name. For interchange with other programs, use the exact spelling of the symbol as displayed on the GPS. If the GPS abbreviates words, spell them out.
+	string sym = 12;
+	// Type (classification) of the waypoint.
+	string type = 13;
+	// Type of GPX fix.
+	string fix = 14;
+	// Number of satellites used to calculate the GPX fix.
+	int32 sat = 15;
+	// Horizontal dilution of precision.
+	float hdop = 16;
+	// Vertical dilution of precision.
+	float vdop = 17;
+	// Position dilution of precision.
+	float pdop = 18;
+	// Number of seconds since last DGPS update.
+	float ageofdgpsdata = 19;
+	// ID of DGPS station used in differential correction.
+	int32 dgpsid = 20;
+	// A link to additional information about the waypoint.
+	map<string, google.protobuf.Any> extensions = 21;
+}
+
+message Route {
+    string name = 1;
+    string cmt = 2;
+    string desc = 3;
+    string src = 4;
+    repeated Link link = 5;
+		// GPS route number.
+		int32 number = 6;
+		// Type (classification) of route.
+		string type = 7;
+		// You can add extend GPX by adding your own elements from another schema here.
+		map<string, google.protobuf.Any> extensions = 8;
+		// A list of route points.
+		repeated Waypoint rtept = 9;
+}
+
+message Track {
+    string name = 1;
+    string cmt = 2;
+    string desc = 3;
+    string src = 4;
+    repeated Link link = 5;
+		// GPS track number.
+		int32 number = 6;
+		// Type (classification) of track.
+		string type = 7;
+		// You can add extend GPX by adding your own elements from another schema here.
+		map<string, google.protobuf.Any> extensions = 8;
+		// A Track Segment holds a list of Track Points which are logically connected in order. To represent a single GPS track where GPS reception was lost, or the GPS receiver was turned off, start a new Track Segment for each continuous span of track data.
+		repeated TrackSegment trkseg = 9;
+}
+
+message TrackSegment {
+	// A Track Point holds the coordinates, elevation, timestamp, and metadata for a single point in a track.
+	repeated Waypoint trkpt = 1;
+	// You can add extend GPX by adding your own elements from another schema here.
+	map<string, google.protobuf.Any> extensions = 2;
+}
+
+message Elevation {
+    float max = 1;
+    float min = 2;
+    float pos = 3;
+    float neg = 4;
+    float avg = 5;
+}
+
+message Distance {
+    float total = 1;
+    float cumul = 2;
+}
+
+message Point {
+    float lat = 1;
+    float lon = 2;
+    float elevation = 3;
+    int64 time = 4;
+}
+
+message Metadata {
+    string name = 1;
+    string desc = 2;
+    repeated Link link = 3;
+    Author author = 4;
+    int64 time = 5;
+		Copyright copyright = 6;
+		string keywords = 7;
+		Bounds bounds = 8;
+		map<string, google.protobuf.Any> extensions = 9;
+}
+
+message Copyright {
+	int32 year = 1;
+	string license = 2;
+	string author = 3;
+}
+
+message Author {
+    string name = 1;
+    Email email = 2;
+    Link link = 3;
+}
+
+message Email {
+	string id = 1;
+	string domain = 2;
+}
+
+
+
+message Bounds {
+	float minlat = 1;
+	float minlon = 2;
+	float maxlat = 3;
+	float maxlon = 4;
+}
