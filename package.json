@@ -1,6 +1,6 @@
 {
 	"name": "egpx-parser",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"type": "module",
 	"types": "./types/index.d.ts",
 	"description": "Efficient GPX implementation for applications where bytesize matters!",
